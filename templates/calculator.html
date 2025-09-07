@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>简易计算器</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 400px; margin: 50px auto; }
+        .calculator { padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        input, select, button { width: 100%; padding: 8px; margin: 5px 0; }
+        .result { margin-top: 15px; padding: 10px; background-color: #f0f0f0; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>简易计算器</h2>
+        <form method="POST">
+            <input type="text" name="num1" placeholder="输入第一个数字" required>
+            <select name="operation" required>
+                <option value="add">+ 加法</option>
+                <option value="subtract">- 减法</option>
+                <option value="multiply">× 乘法</option>
+                <option value="divide">÷ 除法</option>
+            </select>
+            <input type="text" name="num2" placeholder="输入第二个数字" required>
+            <button type="submit">计算</button>
+        </form>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        {% if result %}
+            <div class="result">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
